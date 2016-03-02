@@ -1,4 +1,21 @@
-.carousel a img {
-    width: 250px;
-    height: 300px;
+.brand-logo {
+    margin-left: 20px;
 }
+#nav-mobile1 {
+    margin-left: 150px;
+}
+
+#register, #logIn{
+    width: 40%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+

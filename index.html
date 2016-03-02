@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-
+<header>
 <nav>
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">Study</a>
-        <ul id="nav-mobile1" class="hide-on-med-and-down ">
-
-        </ul>
-        <ul id="nav-mobile2" class="right hide-on-med-and-down">
+        <ul id="nav-mobile1" class="left hide-on-med-and-down ">
             <li><a href="#">课程</a></li>
             <li><a href="#">社区</a></li>
-            <li><a class="waves-effect waves-light modal-trigger" href="#modal1">登录</a></li>
-            <li><a href="#">注册</a></li>
+        </ul>
+        <ul id="nav-mobile2" class="right hide-on-med-and-down">
+            <li><a class="waves-effect waves-light modal-trigger" href="#logIn">登录</a></li>
+            <li><a class="waves-effect waves-light modal-trigger" href="#register">注册</a></li>
         </ul>
     </div>
 </nav>
+</header>
 
-
+<section>
 <div class="slider">
     <ul class="slides">
         <li>
@@ -57,46 +57,196 @@
         </li>
     </ul>
 </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card ">
+                    <div class="card-image">
+                        <img src="http://materializecss.com/images/office.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <!--<div class="card-content">-->
+                        <!--<p>I am a very simple card. I am good at containing small bits of information.-->
+                            <!--I am convenient because I require little markup to use effectively.</p>-->
+                    <!--</div>-->
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12 m4">
+                <div class="card ">
+                    <div class="card-image">
+                        <img src="http://materializecss.com/images/office.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <!--<div class="card-content">-->
+                        <!--<p>I am a very simple card. I am good at containing small bits of information.-->
+                            <!--I am convenient because I require little markup to use effectively.</p>-->
+                    <!--</div>-->
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card ">
+                    <div class="card-image">
+                        <img src="http://materializecss.com/images/office.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <!--<div class="card-content">-->
+                        <!--<p>I am a very simple card. I am good at containing small bits of information.-->
+                            <!--I am convenient because I require little markup to use effectively.</p>-->
+                    <!--</div>-->
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12 m4">
+                <div class="card ">
+                    <div class="card-image">
+                        <img src="http://materializecss.com/images/office.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <!--<div class="card-content">-->
+                    <!--<p>I am a very simple card. I am good at containing small bits of information.-->
+                    <!--I am convenient because I require little markup to use effectively.</p>-->
+                    <!--</div>-->
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12 m4">
+                <div class="card ">
+                    <div class="card-image">
+                        <img src="http://materializecss.com/images/office.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <!--<div class="card-content">-->
+                    <!--<p>I am a very simple card. I am good at containing small bits of information.-->
+                    <!--I am convenient because I require little markup to use effectively.</p>-->
+                    <!--</div>-->
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col s12 m4">
+                <div class="card ">
+                    <div class="card-image">
+                        <img src="http://materializecss.com/images/office.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <!--<div class="card-content">-->
+                    <!--<p>I am a very simple card. I am good at containing small bits of information.-->
+                    <!--I am convenient because I require little markup to use effectively.</p>-->
+                    <!--</div>-->
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
+</section>
 <!-- Modal Trigger -->
 <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>-->
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="logIn" class="modal">
     <div class="modal-content">
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
+                    <div class="input-field col s12">
+                        <input id="register_email" type="email" class="validate">
+                        <label for="register_email">邮箱</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                        <input id="register_password" type="password" class="validate">
+                        <label for="register_password">密码</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <a class="waves-effect waves-light btn " href="#">登录</a>
+    </div>
+</div>
+
+<div id="register" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" class="validate">
+                        <label for="name">用户名</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
+                        <label for="email">邮箱</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">密码</label>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
     <div class="modal-footer">
-        <a class="waves-effect waves-light btn " href="#">Login</a>
+        <a class="waves-effect waves-light btn" href="#">注册</a>
     </div>
 </div>
 
-
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">帮助</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">关于我们</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">联系我们</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">友情加盟</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">投诉建议</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">更多链接</a>
+        </div>
+    </div>
+</footer>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="materialize/js/materialize.min.js"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
