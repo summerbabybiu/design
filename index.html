@@ -171,13 +171,13 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="register_email" type="email" class="validate">
+                        <input id="login_email" type="email" class="validate">
                         <label for="register_email">邮箱</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="register_password" type="password" class="validate">
+                        <input id="login_password" type="password" class="validate">
                         <label for="register_password">密码</label>
                     </div>
                 </div>
@@ -197,19 +197,19 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="name" type="text" class="validate">
+                        <input id="register_name" type="text" class="validate">
                         <label for="name">用户名</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
+                        <input id="register_email" type="email" class="validate">
                         <label for="email">邮箱</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
+                        <input id="register_password" type="password" class="validate">
                         <label for="password">密码</label>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
     </div>
 
     <div class="modal-footer">
-        <a class="waves-effect waves-light btn" href="#">注册</a>
+        <a class="waves-effect waves-light btn" href="#" onclick="register()">注册</a>
     </div>
 </div>
 
@@ -248,7 +248,9 @@
     </div>
 </footer>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/index.js"></script>
 <script src="materialize/js/materialize.min.js"></script>
+<script src="js/av-min.js"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
 <script type="text/javascript">
     $(document).ready(function(){
