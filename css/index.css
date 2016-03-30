@@ -1,6 +1,7 @@
 .brand-logo {
     margin-left: 20px;
 }
+
 #nav-mobile1 {
     margin-left: 150px;
 }
@@ -15,14 +16,30 @@ body {
     flex-direction: column;
 }
 
-main {
-    flex: 1 0 auto;
-}
-
 #cover_name i {
 	height: 32px;
 	line-height: 32px;
 }
 #nav_user {
+	min-width: 100px;
 	margin-right: 20px;
+}
+
+#nav_user a {
+	display: inline-block;
+	font-size: 18px;
+    line-height: 32px;
+}
+
+#nav_user ul li a {
+	font-size: 14px;
+}
+#nav_user i {
+    margin-left: 0;
+}
+
+.forget_p {
+	padding-left: 35px;
+    display: inline-block;
+    padding-top: 12px;
 }
