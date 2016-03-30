@@ -6,6 +6,10 @@
     margin-left: 150px;
 }
 
+header {
+	height: 64px;
+}
+
 #register, #logIn{
     width: 40%;
 }
