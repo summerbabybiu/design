@@ -19,3 +19,10 @@ main {
     flex: 1 0 auto;
 }
 
+#cover_name i {
+	height: 32px;
+	line-height: 32px;
+}
+#nav_user {
+	margin-right: 20px;
+}
