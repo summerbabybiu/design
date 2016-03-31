@@ -47,3 +47,24 @@ body {
     display: inline-block;
     padding-top: 12px;
 }
+
+.show_detail {
+	padding-top: 30px;
+	height: 65vh;
+}
+
+.show_detail .card {
+	height: 58vh;
+}
+
+.show_detail .card .card-content {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 62px;
+}
+.show_detail .card .card-action {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}

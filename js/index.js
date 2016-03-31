@@ -3,7 +3,7 @@
  */
 //leancloud initlize
 $(document).ready(function() {
-	AV.initialize('5aqElVR9DnjVMhhKToDR7uli-gzGzoHsz', 'ljClHbp9oUN6HxOUjSiYkSXc');
+	AV.initialize('iuO5g66bCpCVIhnRtQnmn3YA-gzGzoHsz', 'xkRJahD7klcYeHQ3BDVbbwDS');
 	var currentUser = AV.User.current();
 	if (currentUser) {
 		// do stuff with the user
@@ -86,22 +86,31 @@ function resetPassword() {
 function changePassword() {
 	var newpass = $('#new_p').val();
 	var compass = $('#confirm_p').val();
-	if (newpass === compass) {
-		var user = AV.User.current();
-		user.setPassword(newpass);
-		user.save().then(function() {
-  		// 成功
-  		AV.User.logOut();
-  		Materialize.toast("密码修改成功！", 1000, 'rounded');
-		});
-		setTimeout(function(){
-			location.reload();
-		},1001);
-		
+	if (newpass == "" | compass == "") {
+		alert('密码不能为空！');
 	} else {
-		alert('两次密码不匹配！');
-		$('#new_p').val('');
-		$('#confirm_p').val('');
+		if (newpass === compass) {
+			var user = AV.User.current();
+			user.setPassword(newpass);
+			user.save().then(function() {
+				// 成功
+				AV.User.logOut();
+				Materialize.toast("密码修改成功！", 1000, 'rounded');
+			});
+			setTimeout(function() {
+				location.reload();
+			}, 1001);
+
+		} else {
+			alert('两次密码不匹配！');
+			$('#new_p').val('');
+			$('#confirm_p').val('');
+		}
 	}
-	
+}
+
+function getCourse() {
+	$('.course').addClass('hide');
+	$('.nav_sider').addClass('hide');
+	$('.show_detail').removeClass('hide');
 }

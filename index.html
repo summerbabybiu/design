@@ -18,32 +18,32 @@
 						<li><a href="#">社区</a></li>
 					</ul>
 					<ul id="nav-mobile2" class="right hide-on-med-and-down">
-			            <li><a class="waves-effect waves-light modal-trigger" href="#logIn">登录</a></li>
-			            <li><a class="waves-effect waves-light modal-trigger" href="#register">注册</a></li>
-   					</ul>
-					<div class="right hide-on-med-and-down hide" id="nav_user"> 
+						<li><a class="waves-effect waves-light modal-trigger" href="#logIn">登录</a></li>
+						<li><a class="waves-effect waves-light modal-trigger" href="#register">注册</a></li>
+					</ul>
+					<div class="right hide-on-med-and-down hide" id="nav_user">
 						<ul id="user_dropdown" class="dropdown-content ">
 							<li><a href="#change_password" class="waves-effect waves-light modal-trigger">修改密码</a></li>
 							<li><a href="#!" onclick="log_out()">退出</a></li>
 						</ul>
-						
+
 						<a class="dropdown-button " href="#!" data-activates="user_dropdown" id="cover_name">Dropdown					 	
 		   					<i class="mdi-navigation-arrow-drop-down right">	</i>
 						</a>
-		   				
+
 					</div>
 				</div>
 			</nav>
 		</header>
 
-		<section>
+		<section class='nav_sider'>
 			<div class="slider">
 				<ul class="slides">
 					<li>
 						<img src="img/n1.jpeg">
 						<!-- random image -->
 						<div class="caption center-align">
-							<h3>This is our big Tagline!</h3>
+							<h3>HTML基础学习</h3>
 							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
 						</div>
 					</li>
@@ -75,21 +75,21 @@
 			</div>
 		</section>
 
-		<section>
+		<section class="course">
 			<div class="container">
 				<div class="row">
 					<div class="col s12 m4">
 						<div class="card ">
 							<div class="card-image">
 								<img src="img/office.jpg">
-								<span class="card-title">Card Title</span>
+								<span class="card-title">HTML基础</span>
 							</div>
 							<!--<div class="card-content">-->
 							<!--<p>I am a very simple card. I am good at containing small bits of information.-->
 							<!--I am convenient because I require little markup to use effectively.</p>-->
 							<!--</div>-->
 							<div class="card-action">
-								<a href="#">This is a link</a>
+								<a href="#" onclick="getCourse()">查看课程</a>
 							</div>
 						</div>
 
@@ -177,6 +177,25 @@
 			</div>
 
 		</section>
+
+		<section class="show_detail hide">
+			<div class="container">
+				<div class="row">
+					<div class="col s12">
+						<div class="card ">
+							<div class="card-content">
+								<span class="card-title">Card Title</span>
+								<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+							</div>
+							<div class="card-action">
+								<a href="#">下一节</a>					
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Modal Trigger -->
 		<!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>-->
 		<!-- Modal Structure -->
@@ -236,34 +255,31 @@
 				<a class="waves-effect waves-light btn" href="#" onclick="register()">注册</a>
 			</div>
 		</div>
-		
+
 		<div id="change_password" class="modal">
-					<div class="modal-content">
+			<div class="modal-content">
+				<div class="row">
+					<form class="col s12">
 						<div class="row">
-							<form class="col s12">
-								<div class="row">
-									<div class="input-field col s12">
-										<input id="new_p" type="password" class="validate">
-										<label for="new_p">新密码</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<input id="confirm_p" type="password" class="validate">
-										<label for="confirm_p">确认密码</label>
-									</div>
-								</div>
-							</form>
+							<div class="input-field col s12">
+								<input id="new_p" type="password" class="validate">
+								<label for="new_p">新密码</label>
+							</div>
 						</div>
-					</div>
-		
-					<div class="modal-footer">
-						<a class="waves-effect waves-light btn " href="#" onclick="changePassword()">修改</a>
-					</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="confirm_p" type="password" class="validate">
+								<label for="confirm_p">确认密码</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<a class="waves-effect waves-light btn " href="#" onclick="changePassword()">修改</a>
+			</div>
 		</div>
-
-
-
 
 		<footer class="page-footer">
 			<div class="container">
