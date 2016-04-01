@@ -2,8 +2,14 @@
  * Created by xx on 16/3/20.
  */
 //leancloud initlize
+var array_course = new Array();
+
 $(document).ready(function() {
 	AV.initialize('iuO5g66bCpCVIhnRtQnmn3YA-gzGzoHsz', 'xkRJahD7klcYeHQ3BDVbbwDS');
+	if (localStorage.course_order == undefined) {
+			localStorage.course_order = 1;
+	}
+	//加载导航栏
 	var currentUser = AV.User.current();
 	if (currentUser) {
 		// do stuff with the user
@@ -12,6 +18,26 @@ $(document).ready(function() {
 		$('#nav-mobile2').addClass('hide');
 		$('#nav_user').removeClass('hide');
 	}
+	//加载课程信息
+	var query = new AV.Query('HTML');
+	query.find().then(function(results) {
+	  console.log('Successfully retrieved ' + results.length + ' posts.');
+	  // 处理返回的结果数据
+	  for (var i = 0; i < results.length; i++) {
+	    var object = results[i];
+	    var order = object.get('order') ;
+	    var title = object.get('title') ;
+	    var content = object.get('content') ; 
+	    var des = object.get('description');
+
+	    	var  demo = [];
+	    	demo.push(order,title,des,content);
+	    	array_course.push(demo);
+	  }	
+	 
+	}, function(error) {
+	  console.log('Error: ' + error.code + ' ' + error.message);
+	});
 });
 
 function register() {
@@ -112,5 +138,22 @@ function changePassword() {
 function getCourse() {
 	$('.course').addClass('hide');
 	$('.nav_sider').addClass('hide');
-	$('.show_detail').removeClass('hide');
+	$('.show_detail').removeClass('hide');	
+
+	var i = localStorage.getItem('course_order')-1;
+//	console.log(i);
+//	console.log(array_course[i]);
+	console.log("title: "+array_course[i][1] +"des: "+ array_course[i][2]+"content: " +array_course[i][3]);
+//card-title
+//description
+//course_content
+//show_code
+$('.show_detail .card-title').html(array_course[i][1]);
+$('.description').html( array_course[i][2]);
+console.log('test');
+$('.course_content').html(array_course[i][3]);
+//$('show_code').innerHTML = array_course[i][3];
+
+
+
 }
