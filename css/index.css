@@ -62,6 +62,15 @@ body {
 	left: 0;
 	top: 0;
 	bottom: 62px;
+	width: 100%;
+}
+
+.description {
+	padding-bottom: 10px;
+}
+
+.course_content{
+	padding-bottom: 10px;
 }
 .show_detail .card .card-action {
 	position: absolute;
@@ -70,7 +79,7 @@ body {
 }
 .show_code {
 	width: inherit;
-	background-color: #D1D1D1;
-	height: 200px;
-	
+	background-color: #f5f2f0;
+	max-height: 200px;
+	overflow: auto;
 }

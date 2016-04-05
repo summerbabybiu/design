@@ -3,12 +3,8 @@
  */
 //leancloud initlize
 var array_course = new Array();
-
 $(document).ready(function() {
 	AV.initialize('iuO5g66bCpCVIhnRtQnmn3YA-gzGzoHsz', 'xkRJahD7klcYeHQ3BDVbbwDS');
-	if (localStorage.course_order == undefined) {
-			localStorage.course_order = 1;
-	}
 	//加载导航栏
 	var currentUser = AV.User.current();
 	if (currentUser) {
@@ -18,26 +14,7 @@ $(document).ready(function() {
 		$('#nav-mobile2').addClass('hide');
 		$('#nav_user').removeClass('hide');
 	}
-	//加载课程信息
-	var query = new AV.Query('HTML');
-	query.find().then(function(results) {
-	  console.log('Successfully retrieved ' + results.length + ' posts.');
-	  // 处理返回的结果数据
-	  for (var i = 0; i < results.length; i++) {
-	    var object = results[i];
-	    var order = object.get('order') ;
-	    var title = object.get('title') ;
-	    var content = object.get('content') ; 
-	    var des = object.get('description');
 
-	    	var  demo = [];
-	    	demo.push(order,title,des,content);
-	    	array_course.push(demo);
-	  }	
-	 
-	}, function(error) {
-	  console.log('Error: ' + error.code + ' ' + error.message);
-	});
 });
 
 function register() {
@@ -135,25 +112,93 @@ function changePassword() {
 	}
 }
 
-function getCourse() {
-	$('.course').addClass('hide');
-	$('.nav_sider').addClass('hide');
-	$('.show_detail').removeClass('hide');	
+function getCourse(event) {
 
-	var i = localStorage.getItem('course_order')-1;
-//	console.log(i);
-//	console.log(array_course[i]);
-	console.log("title: "+array_course[i][1] +"des: "+ array_course[i][2]+"content: " +array_course[i][3]);
-//card-title
-//description
-//course_content
-//show_code
-$('.show_detail .card-title').html(array_course[i][1]);
-$('.description').html( array_course[i][2]);
-console.log('test');
-$('.course_content').html(array_course[i][3]);
-//$('show_code').innerHTML = array_course[i][3];
+	var currentUser = AV.User.current();
+	if (currentUser) {
+		var x = event.target;
+		console.log("The id of the triggered element: " + x.id);
+		sessionStorage.kind = x.id;
+	if (sessionStorage[x.id] == undefined) {
+			sessionStorage.setItem(x.id,1);
+		}
+		//console.log(sessionStorage.getItem([x.id]));
+		loadCourse();
+	} else {
+		alert('请先登录！');
+	}
+}
+
+function loadCourse() {
+		var kind = sessionStorage.getItem('kind');
+		var chapterNu = sessionStorage.getItem(kind);
+		//加载课程信息
+		var query = new AV.Query(kind);
+		query.find().then(function(results) {
+		//	console.log('Successfully retrieved ' + results.length + ' posts.');
+			sessionStorage.courseLength = results.length;
+			// 处理返回的结果数据
+			
+				var object = results[chapterNu-1];
+				var order = object.get('order');
+				var title = object.get('title');
+				var content = object.get('content');
+				var des = object.get('description');
+				var demoString = object.get('demo');
+
+	//显示相应课程的每个章节信息 
+		$('.course').addClass('hide');
+		$('.nav_sider').addClass('hide');
+		$('.show_detail').removeClass('hide');
+
+		$('.show_detail .card-title').text('第' + chapterNu + '节————' + title);
+		$('.description').text('描述： ' + des);
+		if (content !== undefined) {
+			$('.course_content').removeClass('hide');
+			$('.course_content').text('内容：' + content);
+		} else {
+			$('.course_content').text('');
+		}
+		if (demoString !== undefined) {
+			$('.show_code pre').removeClass('hide');
+			$('.show_code pre').text(demoString);
+		} else {
+			$('.show_code pre').addClass('hide');
+		}
 
 
+		}, function(error) {
+			console.log('Error: ' + error.code + ' ' + error.message);
+		});
+}
 
+function getLast() {
+	//console.log(sessionStorage.getItem(sessionStorage.getItem('kind')));
+	var num = sessionStorage.getItem(sessionStorage.getItem('kind'));
+	if (num == 1) {
+		Materialize.toast("已经是第一节啦", 3000, 'rounded');
+	} else {
+		num--;
+		sessionStorage.setItem(sessionStorage.getItem('kind'),num);
+		loadCourse();
+	}
+}
+
+function getNext() {
+	var num = sessionStorage.getItem(sessionStorage.getItem('kind'));
+	var cL = sessionStorage.getItem('courseLength');
+	console.log(num+"-----------"+cL);
+	if (num == cL) {
+		var r = confirm("恭喜你完成本次课程！返回首页？");
+		if (r == true) {
+			location.reload();
+		}
+		//		else {
+		//		    
+		//		}
+	} else {
+		num++;
+		sessionStorage.setItem(sessionStorage.getItem('kind'),num);
+		loadCourse();
+	}
 }
