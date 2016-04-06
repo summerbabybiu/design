@@ -14,8 +14,29 @@ $(document).ready(function() {
 		$('#nav-mobile2').addClass('hide');
 		$('#nav_user').removeClass('hide');
 	}
-
+	readRecord();
 });
+
+function readRecord() {
+	var currentUser = AV.User.current();
+	var query = new AV.Query('Record');
+	query.equalTo('user', currentUser.get('username'));
+	query.find().then(function(results) {
+	console.log('Successfully retrieved ' + results.length + ' posts.');
+	  // 处理返回的结果数据
+	  for (var i = 0; i < results.length; i++) {
+	    var object = results[i];
+	    if (object.get('chapter') !== undefined){
+	   // console.log(object.get('courseKind') + ' - ' + object.get('chapter'));
+	    sessionStorage.setItem([object.get('courseKind')],[object.get('chapter')]);
+	    }
+
+	  }
+	}, function(error) {
+	  console.log('Error: ' + error.code + ' ' + error.message);
+	});
+}
+
 
 function register() {
 	var userName = $("#register_name").val();
@@ -122,7 +143,21 @@ function getCourse(event) {
 	if (sessionStorage[x.id] == undefined) {
 			sessionStorage.setItem(x.id,1);
 		}
-		//console.log(sessionStorage.getItem([x.id]));
+		//console.log(sessionStorage.getItem([x.id]));		
+		var query = new AV.Query('Record');
+		query.equalTo('user', currentUser.get('username'));
+		query.equalTo('courseKind', sessionStorage.kind );
+		query.find().then(function(results) {
+			console.log(results.length);
+		  if(results.length == 0) {
+		  	setRecord();
+		  }	 else {
+		  	sessionStorage.recordID = results[0].id;
+		  }
+		}, function(error) {
+		  console.log('Error: ' + error.code + ' ' + error.message);
+		});
+		
 		loadCourse();
 	} else {
 		alert('请先登录！');
@@ -139,12 +174,12 @@ function loadCourse() {
 			sessionStorage.courseLength = results.length;
 			// 处理返回的结果数据
 			
-				var object = results[chapterNu-1];
-				var order = object.get('order');
-				var title = object.get('title');
-				var content = object.get('content');
-				var des = object.get('description');
-				var demoString = object.get('demo');
+			var object = results[chapterNu-1];
+			var order = object.get('order');
+			var title = object.get('title');
+			var content = object.get('content');
+			var des = object.get('description');
+			var demoString = object.get('demo');
 
 	//显示相应课程的每个章节信息 
 		$('.course').addClass('hide');
@@ -172,6 +207,55 @@ function loadCourse() {
 		});
 }
 
+
+function setRecord(){
+	var currentUser = AV.User.current();
+	var kind = sessionStorage.getItem('kind');
+	var Record = AV.Object.extend('Record');
+	var record = new Record();
+	record.save({
+	  user: currentUser.get('username'),
+	  courseKind: kind,
+	}).then(function(record) {
+	  // 实例已经成功保存.
+	  console.log('success');
+	  console.log(record.id);
+	  sessionStorage.recordID = record.id;
+	}, function(err) {
+	  // 失败了.
+	  console.log('fail');
+	});
+}
+
+function updateChapter(){
+	var Record = AV.Object.extend('Record');
+	var query = new AV.Query(Record);
+	
+	// 这个 id 是要修改条目的 objectId，你在生成这个实例并成功保存时可以获取到，请看前面的文档
+	query.get(sessionStorage.recordID).then(function(record) {
+	  // 成功，回调中可以取得这个 Post 对象的一个实例，然后就可以修改它了
+	  record.set('chapter', sessionStorage.getItem(sessionStorage.getItem('kind')));
+	  record.save();
+	}, function(error) {
+	  // 失败了
+	});
+}
+
+
+function finishStatus(){
+	var Record = AV.Object.extend('Record');
+	var query = new AV.Query(Record);
+	
+	// 这个 id 是要修改条目的 objectId，你在生成这个实例并成功保存时可以获取到，请看前面的文档
+	query.get(sessionStorage.recordID).then(function(record) {
+	  // 成功，回调中可以取得这个 Post 对象的一个实例，然后就可以修改它了
+	  record.set('finsih', true);
+	  record.save();
+	}, function(error) {
+	  // 失败了
+	});
+}
+
 function getLast() {
 	//console.log(sessionStorage.getItem(sessionStorage.getItem('kind')));
 	var num = sessionStorage.getItem(sessionStorage.getItem('kind'));
@@ -179,6 +263,7 @@ function getLast() {
 		Materialize.toast("已经是第一节啦", 3000, 'rounded');
 	} else {
 		num--;
+		updateChapter();
 		sessionStorage.setItem(sessionStorage.getItem('kind'),num);
 		loadCourse();
 	}
@@ -187,8 +272,9 @@ function getLast() {
 function getNext() {
 	var num = sessionStorage.getItem(sessionStorage.getItem('kind'));
 	var cL = sessionStorage.getItem('courseLength');
-	console.log(num+"-----------"+cL);
+	//console.log(num+"-----------"+cL);
 	if (num == cL) {
+		finishStatus();
 		var r = confirm("恭喜你完成本次课程！返回首页？");
 		if (r == true) {
 			location.reload();
@@ -198,7 +284,10 @@ function getNext() {
 		//		}
 	} else {
 		num++;
+		updateChapter();
 		sessionStorage.setItem(sessionStorage.getItem('kind'),num);
 		loadCourse();
 	}
 }
+
+
