@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<meta>
-	<title>Study</title>
+	<title>我的课程</title>
 	<meta charset="utf-8"> </meta>
 	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">-->
 	<link rel="stylesheet" href="materialize/css/materialize.css">
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/your_course.css">
 	</head>
 
 	<body>
@@ -23,9 +24,9 @@
 					</ul>
 					<div class="right hide-on-med-and-down hide" id="nav_user">
 						<ul id="user_dropdown" class="dropdown-content ">
-							<li><a href="yoursCourse.html">我的课程</a></li>
+							<li><a href="#!">我的课程</a></li>
 							<li><a href="#change_password" class="waves-effect waves-light modal-trigger">修改密码</a></li>
-							
+
 							<li><a href="#!" onclick="log_out()">退出</a></li>
 						</ul>
 
@@ -38,140 +39,18 @@
 			</nav>
 		</header>
 
-		<section class='nav_sider'>
-			<div class="slider">
-				<ul class="slides">
-					<li>
-						<img src="img/n1.jpeg">
-						<!-- random image -->
-						<div class="caption center-align">
-							<h3>HTML基础学习</h3>
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-						</div>
-					</li>
-					<li>
-						<img src="img/n2.jpeg">
-						<!-- random image -->
-						<div class="caption left-align">
-							<h3>Left Aligned Caption</h3>
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-						</div>
-					</li>
-					<li>
-						<img src="img/n3.jpeg">
-						<!-- random image -->
-						<div class="caption right-align">
-							<h3>Right Aligned Caption</h3>
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-						</div>
-					</li>
-					<li>
-						<img src="img/n4.jpeg">
-						<!-- random image -->
-						<div class="caption center-align">
-							<h3>This is our big Tagline!</h3>
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</section>
-
-		<section class="course">
-			<div class="container">
-				<div class="row">
-					<div class="col s12 m4">
-						<div class="card ">
-							<div class="card-image">
-								<img src="img/office.jpg">
-								<span class="card-title">HTML基础</span>
-							</div>							
-							<div class="card-action">
-								<a href="#source=HTML" id="HTML"  onclick="getCourse(event)">查看课程</a>
-							</div>
-						</div>
-
-					</div>
-					<div class="col s12 m4">
-						<div class="card ">
-							<div class="card-image">
-								<img src="img/office.jpg">
-								<span class="card-title">CSS3</span>
-							</div>						
-							<div class="card-action">
-								<a href="#">查看课程</a>
-							</div>
-						</div>
-					</div>
-					<div class="col s12 m4">
-						<div class="card ">
-							<div class="card-image">
-								<img src="img/office.jpg">
-								<span class="card-title">JavaScript</span>
-							</div>							
-							<div class="card-action">
-								<a href="#" id="JS" onclick="getCourse(event)">查看课程</a>
-							</div>
-						</div>
-
-					</div>
-					<div class="col s12 m4">
-						<div class="card ">
-							<div class="card-image">
-								<img src="img/office.jpg">
-								<span class="card-title"></span>
-							</div>						
-							<div class="card-action">
-								<a href="#">查看课程</a>
-							</div>
-						</div>
-
-					</div>
-					<div class="col s12 m4">
-						<div class="card ">
-							<div class="card-image">
-								<img src="img/office.jpg">
-								<span class="card-title">Card Title</span>
-							</div>					
-							<div class="card-action">
-								<a href="#">查看课程</a>
-							</div>
-						</div>
-
-					</div>
-					<div class="col s12 m4">
-						<div class="card ">
-							<div class="card-image">
-								<img src="img/office.jpg">
-								<span class="card-title">Card Title</span>
-							</div>				
-							<div class="card-action">
-								<a href="#">查看课程</a>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-		</section>
-
-		<section class="show_detail hide">
+		<section class="show_yourCourse">
 			<div class="container">
 				<div class="row">
 					<div class="col s12">
 						<div class="card ">
 							<div class="card-content">
-								<span class="card-title"></span>
-								<p class="description"></p>
-								<p class="course_content"></p>
-								<div class="show_code">
-								 <pre></pre>
-								</div>
+								<span class="card-title"></span>	
+								<p></p>
 							</div>
 							<div class="card-action">
-								<a href="#" onclick="getLast()">上一节</a>		
-								<a href="#" onclick="getNext()">下一节</a>					
+								<a href="#" onclick="getLast()">上一节</a>
+								<a href="#" onclick="getNext()">下一节</a>
 							</div>
 						</div>
 					</div>
@@ -293,6 +172,7 @@
 		<script src="js/index.js"></script>
 		<script src="materialize/js/materialize.min.js"></script>
 		<script src="js/av-min.js"></script>
+		<script type="text/javascript" src="js/show_yourC.js" ></script>
 		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
 		<script type="text/javascript">
 			$(document).ready(function() {
