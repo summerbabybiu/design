@@ -27,7 +27,8 @@ function readRecord() {
 		// 处理返回的结果数据
 		for (var i = 0; i < results.length; i++) {
 			var object = results[i];
-			if (object.get('chapter') !== undefined) {
+			console.log(object.get('chapter'));
+			if (object.get('chapter') !== 0) {
 				// console.log(object.get('courseKind') + ' - ' + object.get('chapter'));
 				sessionStorage.setItem([object.get('courseKind')], [object.get('chapter')]);
 			}
@@ -251,7 +252,7 @@ function finishStatus(callback) {
 	// 这个 id 是要修改条目的 objectId，你在生成这个实例并成功保存时可以获取到，请看前面的文档
 	query.get(sessionStorage.recordID).then(function(record) {
 		// 成功，回调中可以取得这个 Post 对象的一个实例，然后就可以修改它了
-		record.set('finsih', true);
+		record.set('finish', true);
 		record.save();
 		callback('success');
 	}, function(error) {

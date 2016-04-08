@@ -1,4 +1,76 @@
 .show_yourCourse {
 	padding-top: 30px;
 	height: 65vh;
+	/*min-width: 950px;*/
 }
+.show_yourCourse .row {
+	height: 60vh;
+	/*min-width: 950px;*/
+}
+
+.sayHello {
+	display: block;
+	text-align: center;
+	padding: 20px 0;
+	margin: 0;
+	border-bottom: #ccc 1px solid;
+}
+
+.sidebar {
+	position: relative;
+    width: 240px;
+    box-shadow: 2px 2px 2px #ddd ,-2px 2px 2px #ddd;
+    height: 100%;
+    background-color: #fff;
+    
+    }
+.sidebar a {
+	text-align: center;
+    line-height: 44px;
+    height: 44px;
+    font-weight: bolder;
+    display: block;
+    color: #444;
+    padding: 0 25px;
+}
+.present_course {
+	margin-left: 240px;
+	height: 100%;
+	margin-top: -60vh;
+	
+}
+.all_course {
+	padding: 20px;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+.all_course ul {
+	height: 100%;
+	margin: 0;
+}
+.all_course ul li {
+	float: left;
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.all_course ul li .card {
+	height: 108px;
+	width: 200px;
+}
+.all_course ul li .card .course_action {
+	border-top: 1px solid rgba(160, 160, 160, 0.2);
+} 
+.all_course ul li .card .course_action a{
+	display: block;
+	text-align: center;
+	padding: 10px 0;
+} 
+.all_course ul li .card .course_name {
+	text-align: center;
+	padding: 20px 10px;
+	margin: 0;
+} 
+
+

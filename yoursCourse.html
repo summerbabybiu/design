@@ -39,23 +39,34 @@
 			</nav>
 		</header>
 
-		<section class="show_yourCourse">
-			<div class="container">
-				<div class="row">
-					<div class="col s12">
-						<div class="card ">
-							<div class="card-content">
-								<span class="card-title"></span>	
-								<p></p>
-							</div>
-							<div class="card-action">
-								<a href="#" onclick="getLast()">上一节</a>
-								<a href="#" onclick="getNext()">下一节</a>
+		<section class="show_yourCourse">		
+			<div class="container z-depth-1">
+				<div class="row">					
+						<aside id="nav-couser" class="sidebar">
+							<section class="logo">
+								<h5 class="sayHello"></h5>
+							</section>
+							<ul class="nav clearfix">
+							    <li><a href="#" onclick="get_continue()">正在学习</a></li>
+							    <li><a href="#" onclick="get_finished()">已学完</a></li>								    
+							 </ul>      
+						</aside>		
+						<div class="present_course">
+							<div class="all_course">
+								<ul>
+									<!--<li>
+										<div class="card">
+											<h5 class="course_name">javaScript</h5>							
+											<div class="course_action">
+												<a href="#">SEE</a>
+											</div>
+										</div>
+									</li>					-->
+								</ul>
 							</div>
 						</div>
-					</div>
 				</div>
-			</div>
+			</div>	
 		</section>
 
 		<!-- Modal Trigger -->
