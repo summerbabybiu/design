@@ -26,13 +26,11 @@ function readRecord() {
 		console.log('Successfully retrieved ' + results.length + ' posts.');
 		// 处理返回的结果数据
 		for (var i = 0; i < results.length; i++) {
-			var object = results[i];
-			console.log(object.get('chapter'));
-			if (object.get('chapter') !== 0) {
+			var object = results[i];		
+			if (object.get('chapter') != '') {					
 				// console.log(object.get('courseKind') + ' - ' + object.get('chapter'));
 				sessionStorage.setItem([object.get('courseKind')], [object.get('chapter')]);
-			}
-
+			} 	
 		}
 	}, function(error) {
 		console.log('Error: ' + error.code + ' ' + error.message);
@@ -191,13 +189,13 @@ function loadCourse() {
 
 		$('.show_detail .card-title').text('第' + chapterNu + '节————' + title);
 		$('.description').text('描述： ' + des);
-		if (content !== undefined) {
+		if (content != undefined) {
 			$('.course_content').removeClass('hide');
 			$('.course_content').text('内容：' + content);
 		} else {
 			$('.course_content').text('');
 		}
-		if (demoString !== undefined) {
+		if (demoString != undefined) {
 			$('.show_code pre').removeClass('hide');
 			$('.show_code pre').text(demoString);
 		} else {

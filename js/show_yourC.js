@@ -22,7 +22,7 @@ function get_finished() {
 			if (results.length > 0) {
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
-					if (object.get('chapter') !== null) {
+					if (object.get('chapter') != "") {
 						if (object.get('finish') == true) {
 							console.log('已完成：' + object.get('courseKind') + ' - ' + object.get('chapter'));
 							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><div class='course_action'><a href='#'>重新学习</a></div></div></li>";
@@ -57,7 +57,7 @@ function get_continue() {
 			if (results.length > 0) {
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
-					if (object.get('chapter') !== 0 ) {
+					if (object.get('chapter') != "" ) {
 						if (object.get('finish') == false) {
 							console.log('未完成：' + object.get('courseKind') + ' - ' + object.get('chapter'));
 							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><div class='course_action'><a href='#'>继续学习</a></div></div></li>";
