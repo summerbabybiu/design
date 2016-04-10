@@ -7,8 +7,10 @@
     <!--<link rel="stylesheet" href="css/index.css">-->
 </head>
 <body>
-    <button onclick="publish()">public</button>
-    <button onclick="queryAllStatus()">queryStatys</button>
+	<input type="text" placeholder="输入你想说的话" id="status_to_public"/>
+    <button onclick="publish()">发布</button>
+    <button onclick="queryAllStatus()">公开状态</button>
+    <button onclick="friends()">朋友圈</button>
     <div id="status">
     </div>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
