@@ -47,8 +47,8 @@
 								<h5 class="sayHello"></h5>
 							</section>
 							<ul class="nav clearfix">
-							    <li><a href="#" onclick="get_continue()">正在学习</a></li>
-							    <li><a href="#" onclick="get_finished()">已学完</a></li>								    
+							    <li><a href="#" onclick="get_continue(event)">正在学习</a></li>
+							    <li><a href="#" onclick="get_finished(event)">已学完</a></li>								    
 							 </ul>      
 						</aside>		
 						<div class="present_course">
@@ -56,7 +56,8 @@
 								<ul>
 									<!--<li>
 										<div class="card">
-											<h5 class="course_name">javaScript</h5>							
+											<h5 class="course_name">javaScript</h5>	
+											<p>已至第3章</p>
 											<div class="course_action">
 												<a href="#">SEE</a>
 											</div>
@@ -69,6 +70,28 @@
 			</div>	
 		</section>
 
+		<section class="show_detail hide">
+			<div class="container">
+				<div class="row">
+					<div class="col s12">
+						<div class="card ">
+							<div class="card-content">
+								<span class="card-title"></span>
+								<p class="description"></p>
+								<p class="course_content"></p>
+								<div class="show_code">
+								 <pre></pre>
+								</div>
+							</div>
+							<div class="card-action">
+								<a href="#" onclick="getLast()">上一节</a>		
+								<a href="#" onclick="getNext()">下一节</a>					
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<!-- Modal Trigger -->
 		<!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>-->
 		<!-- Modal Structure -->

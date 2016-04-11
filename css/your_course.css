@@ -33,6 +33,12 @@
     color: #444;
     padding: 0 25px;
 }
+.show_yourCourse #nav-couser .nav li a:hover {
+	background: ghostwhite;
+}
+.clickClass {
+	background: ghostwhite;
+}
 .present_course {
 	margin-left: 240px;
 	height: 100%;
@@ -56,7 +62,7 @@
 }
 
 .all_course ul li .card {
-	height: 108px;
+	height: 128px;
 	width: 200px;
 }
 .all_course ul li .card .course_action {
@@ -72,5 +78,8 @@
 	padding: 20px 10px;
 	margin: 0;
 } 
-
+.all_course ul li .card p {
+	text-align: center;
+    margin: 0;
+}
 
