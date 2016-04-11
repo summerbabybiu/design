@@ -8,13 +8,18 @@ $(document).ready(function() {
 function publish() {
 	var text = $("#status_to_public").val();
 	var status = new AV.Status(null, text);
-	AV.Status.sendStatusToFollowers(status).then(function(status) {
+	if (text != "") {
+		AV.Status.sendStatusToFollowers(status).then(function(status) {
 		//发布状态成功，返回状态信息
-		alert("发送成功");
-	}, function(err) {
-		//发布失败
-		console.dir(err);
-	});
+			alert("发送成功");
+		}, function(err) {
+			//发布失败
+			console.dir(err);
+		});
+	} else {
+		Materialize.toast("内容不能为空", 3000, 'rounded');
+	}
+	
 }
 
 function queryAllStatus() {
