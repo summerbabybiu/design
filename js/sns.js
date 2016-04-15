@@ -10,7 +10,7 @@ function publish() {
 	var status = new AV.Status(null, text);
 	if (text != "") {
 		AV.Status.sendStatusToFollowers(status).then(function(status) {
-		//发布状态成功，返回状态信息
+			//发布状态成功，返回状态信息
 			alert("发送成功");
 		}, function(err) {
 			//发布失败
@@ -19,7 +19,7 @@ function publish() {
 	} else {
 		Materialize.toast("内容不能为空", 3000, 'rounded');
 	}
-	
+
 }
 
 function queryAllStatus() {
@@ -58,13 +58,14 @@ function insertStatus(array) {
 		var userName = "我";
 		if (AV.User.current().id != obj._serverData.source.id) {
 			userName = "匿名用户";
-			followHTML = "<button onclick='follow(event)' id='" + obj._serverData.source.id + "'>关注</button>";
+			followHTML = "<button onclick='follow(event)' class='btn waves-effect waves-light follower' id='" + obj._serverData.source.id + "'>关注</button>";
+			//			<button  class="btn waves-effect waves-light follower" onclick='follow(event)' >+ 关注</button>
 		}
 		var imgHTML = "";
 		if (obj._serverData.image) {
 			imgHTML = "<img src='" + obj._serverData.image + "'>";
 		}
-		statusHTML += "<div><p>" + userName + "</p><p>" + obj._serverData.message + "</p>" + imgHTML + followHTML + "</div>";
+		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj._serverData.message + "</p>" + imgHTML + followHTML + "</div>";
 
 	});
 	$("#status").empty();
@@ -76,16 +77,16 @@ function insertStatusObj(array) {
 	array.forEach(function(obj) {
 		var followHTML = "";
 		var userName = "我";
-		if (AV.User.current().id != obj.id) {
-			console.log(obj.id);
+		if (AV.User.current().id != obj.get('source').id) {
 			userName = "匿名用户";
 		}
 		var imgHTML = "";
 		if (obj.data.image) {
 			imgHTML = "<img src='" + obj._serverData.image + "'>";
 		}
-		statusHTML += "<div><p>" + userName + "</p><p>" + obj.data.message + "</p>" + imgHTML + followHTML + "</div>";
+		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj.data.message + "</p>" + imgHTML + "</div>";
 	});
+	
 	$("#status").empty();
 	$("#status").append(statusHTML);
 }

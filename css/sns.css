@@ -1,0 +1,30 @@
+#status_to_public:focus {
+	     border-bottom: 1px solid #ef9a9a ;
+	     box-shadow: 0 1px 0 0 #ef9a9a ;
+   }
+#status {
+	margin-top: 20px;
+	min-height: 60vh;
+}  
+   
+#status .content {
+	text-indent: 2em;
+}
+
+.divider {
+	margin: 10px 0;
+}
+
+#status .cover {
+	position: relative;
+}
+
+.follower {
+	background-color: whitesmoke;
+	color: #424242 ;
+	padding: 0 10px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
