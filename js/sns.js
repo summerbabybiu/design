@@ -11,7 +11,9 @@ function publish() {
 	if (text != "") {
 		AV.Status.sendStatusToFollowers(status).then(function(status) {
 			//发布状态成功，返回状态信息
-			alert("发送成功");
+			//			alert("发送成功");
+			Materialize.toast("发送成功", 3000, 'rounded');
+			location.reload();
 		}, function(err) {
 			//发布失败
 			console.dir(err);
@@ -26,10 +28,48 @@ function queryAllStatus() {
 	var query = new AV.Query('_Status');
 	var statusHTML = "";
 	query.find().then(function(resutls) {
+		resutls.reverse();
 		insertStatus(resutls);
 	}, function(error) {
 		console.log(error);
 	});
+}
+
+function commentModal(event) {
+	getCommentForStatus(event.target.id, function(results, err) {
+		var contentHTML = "";
+		if (results) {
+			results.reverse();
+			results.forEach(function(obj) {
+				var mainHTML = "<p>匿名用户</p><p>" + obj.get("content") + "</p>"
+				contentHTML += mainHTML;
+			});
+		}
+		if(!results || results.length == 0) {
+			contentHTML += "<p>没有评论</p>";
+		}
+		var addCommentHTML = "<input type='text' id='addCommentContent'/><button onclick='addNewComment(event)' id='" + event.target.id + "'>添加评论</button>";
+		contentHTML += addCommentHTML;
+		$("#commentModalContent").empty();
+		$("#commentModalContent").append(contentHTML);
+		$('#commentModel').openModal();
+	});
+}
+
+function addNewComment(event) {
+	var content = $("#addCommentContent").val();
+	if (content.length > 0) {
+		setCommentForStatus(event.target.id, content, function(success, err) {
+			if (success) {
+				$('#commentModel').closeModal();
+			} else {
+				Materialize.toast('failed', 3000, 'rounded');
+			}
+		});
+	}
+	else {
+		alert("评论不能为空");
+	}
 }
 
 function friends() {
@@ -65,7 +105,8 @@ function insertStatus(array) {
 		if (obj._serverData.image) {
 			imgHTML = "<img src='" + obj._serverData.image + "'>";
 		}
-		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj._serverData.message + "</p>" + imgHTML + followHTML + "</div>";
+		var commentHTML = "<button onclick='commentModal(event)' id='" + obj.id + "'>查看评论</button>";
+		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj._serverData.message + "</p>" + imgHTML + followHTML + commentHTML + "</div>";
 
 	});
 	$("#status").empty();
@@ -84,9 +125,9 @@ function insertStatusObj(array) {
 		if (obj.data.image) {
 			imgHTML = "<img src='" + obj._serverData.image + "'>";
 		}
-		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj.data.message + "</p>" + imgHTML + "</div>";
+		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj.data.message + "</p>" + imgHTML + commentHTML + "</div>";
 	});
-	
+
 	$("#status").empty();
 	$("#status").append(statusHTML);
 }
