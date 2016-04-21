@@ -10,7 +10,7 @@
 	</head>
 
 	<body>
-		
+
 		<header>
 			<nav>
 				<div class="nav-wrapper">
@@ -27,7 +27,7 @@
 						<ul id="user_dropdown" class="dropdown-content ">
 							<li><a href="yoursCourse.html">我的课程</a></li>
 							<li><a href="#change_password" class="waves-effect waves-light modal-trigger">修改密码</a></li>
-							
+
 							<li><a href="#!" onclick="log_out()">退出</a></li>
 						</ul>
 
@@ -43,17 +43,17 @@
 			<div class="operate">
 				<div class="input-field ">
 					<i class="small mdi-editor-mode-edit blue-grey-text prefix"></i>
-	          		<textarea id="status_to_public" class="materialize-textarea"></textarea>
-	          		<label for="status_to_public">写下你想说的</label>
-	          	</div>
-				
+					<textarea id="status_to_public" class="materialize-textarea"></textarea>
+					<label for="status_to_public">写下你想说的</label>
+				</div>
+
 				<button class="btn waves-effect waves-light red lighten-3 " onclick="publish()">发布</button>
 				<button class="btn waves-effect waves-light red lighten-3 " onclick="queryAllStatus()">公开状态</button>
 				<button class="btn waves-effect waves-light red lighten-3 " onclick="friends()">朋友圈</button>
 			</div>
-			
-			<div id="status">			
-					<div class="cover">
+
+			<div id="status">
+				<!--<div class="cover">
 						<h5 class="username">userName</h5>
 						<p class="content"> obj._serverData.message </p>
 						<img src='http://ww2.sinaimg.cn/large/8696f529jw1f2n5bct1owj20820aqwfc.jpg'>
@@ -66,12 +66,12 @@
 						<img src='http://ww2.sinaimg.cn/large/8696f529jw1f2n5bct1owj20820aqwfc.jpg'>
 						<button class="btn waves-effect waves-light follower" onclick='follow(event)' >+ 关注</button>
 						<div class="divider"></div>
-					</div>
+					</div>-->
 
 			</div>
 		</div>
-		
-			<!-- Modal Trigger -->
+
+		<!-- Modal Trigger -->
 		<!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Login</a>-->
 		<!-- Modal Structure -->
 		<div id="logIn" class="modal">
@@ -155,7 +155,14 @@
 				<a class="waves-effect waves-light btn " href="#" onclick="changePassword()">修改</a>
 			</div>
 		</div>
-
+		<!-- Modal Structure -->
+		<div id="commentModel" class="modal">
+			<div class="modal-content" id="commentModalContent">
+				<!--<div id="commentModalContent"></div>
+				<input type="text" id="commentContent"/>
+				<button>评论</button>-->
+			</div>
+		</div>
 		<footer class="page-footer">
 			<div class="container">
 				<div class="row">
@@ -181,12 +188,13 @@
 				</div>
 			</div>
 		</footer>
-		
+
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script type="text/javascript" src="js/index.js" ></script>
+		<script type="text/javascript" src="js/index.js"></script>
 		<script src="js/sns.js"></script>
 		<script src="materialize/js/materialize.min.js"></script>
 		<script src="js/av-min.js"></script>
+		<script src="js/comment.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
