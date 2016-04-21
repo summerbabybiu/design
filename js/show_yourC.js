@@ -65,7 +65,7 @@ function get_continue() {
 			if (results.length > 0) {
 				for (var i = 0; i < results.length; i++) {
 					var object = results[i];
-					if (object.get('chapter') != "" ) {
+					if (object.get('chapter') != null ) {
 						if (object.get('finish') == false) {
 							console.log('未完成：' + object.get('courseKind') + ' - ' + object.get('chapter'));
 							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><p>已至第"+chapterNu+"章</p><div class='course_action'><a href='#' onclick = 'get_study()'>继续学习</a></div></div></li>";
