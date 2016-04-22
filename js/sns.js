@@ -48,7 +48,7 @@ function commentModal(event) {
 		if(!results || results.length == 0) {
 			contentHTML += "<p>没有评论</p>";
 		}
-		var addCommentHTML = "<input type='text' id='addCommentContent'/><button onclick='addNewComment(event)' id='" + event.target.id + "'>添加评论</button>";
+		var addCommentHTML = "<input type='text' id='addCommentContent'/><button  class= 'btn waves-effect waves-light seeComment' onclick='addNewComment(event)' id='" + event.target.id + "'>添加评论</button>";
 		contentHTML += addCommentHTML;
 		$("#commentModalContent").empty();
 		$("#commentModalContent").append(contentHTML);
@@ -82,7 +82,7 @@ function friends() {
 		console.dir(err);
 	});
 }
-
+/*
 function follow(e) {
 	AV.User.current().follow(e.target.id).then(function() {
 		alert('关注成功');
@@ -90,23 +90,23 @@ function follow(e) {
 		console.dir(err);
 	});
 }
-
+*/
 function insertStatus(array) {
+	var currentUser = AV.User.current();
 	var statusHTML = "";
 	array.forEach(function(obj) {
 		var followHTML = "";
-		var userName = "我";
+		var userName = currentUser.get('username');
 		if (AV.User.current().id != obj._serverData.source.id) {
 			userName = "匿名用户";
-			followHTML = "<button onclick='follow(event)' class='btn waves-effect waves-light follower' id='" + obj._serverData.source.id + "'>关注</button>";
-			//			<button  class="btn waves-effect waves-light follower" onclick='follow(event)' >+ 关注</button>
+//			followHTML = "<button onclick='follow(event)' class='btn waves-effect waves-light follower' id='" + obj._serverData.source.id + "'>关注</button>";
 		}
 		var imgHTML = "";
 		if (obj._serverData.image) {
 			imgHTML = "<img src='" + obj._serverData.image + "'>";
 		}
-		var commentHTML = "<button onclick='commentModal(event)' id='" + obj.id + "'>查看评论</button>";
-		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj._serverData.message + "</p>" + imgHTML + followHTML + commentHTML + "</div>";
+		var commentHTML = "<button onclick='commentModal(event)' id='" + obj.id + "' class= 'btn waves-effect waves-light seeComment'>查看评论</button>";
+		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj._serverData.message + "</p>" + imgHTML +"<br/>"+ commentHTML + "</div>";
 
 	});
 	$("#status").empty();
@@ -114,10 +114,11 @@ function insertStatus(array) {
 }
 
 function insertStatusObj(array) {
+	var currentUser = AV.User.current();
 	var statusHTML = "";
 	array.forEach(function(obj) {
 		var followHTML = "";
-		var userName = "我";
+		var userName = currentUser.get('username');
 		if (AV.User.current().id != obj.get('source').id) {
 			userName = "匿名用户";
 		}
