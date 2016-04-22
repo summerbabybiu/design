@@ -97,7 +97,7 @@ function insertStatus(array) {
 	var statusHTML = "";
 	array.forEach(function(obj) {
 		var followHTML = "";
-		var userName = currentUser.get('username');
+		var userName = "我";
 		if (AV.User.current().id != obj._serverData.source.id) {
 			userName = "匿名用户";
 //			followHTML = "<button onclick='follow(event)' class='btn waves-effect waves-light follower' id='" + obj._serverData.source.id + "'>关注</button>";
@@ -119,7 +119,8 @@ function insertStatusObj(array) {
 	var statusHTML = "";
 	array.forEach(function(obj) {
 		var followHTML = "";
-		var userName = currentUser.get('username');
+		var userName = "我";
+		console.log(obj.get('source').get('username'));
 		if (AV.User.current().id != obj.get('source').id) {
 			userName = "匿名用户";
 		}
