@@ -41,7 +41,7 @@ function commentModal(event) {
 		if (results) {
 			results.reverse();
 			results.forEach(function(obj) {
-				var mainHTML = "<p>匿名用户</p><p>" + obj.get("content") + "</p>"
+				var mainHTML = "<p>"+obj.get("commenter")+"</p><p>" + obj.get("content") + "</p>"
 				contentHTML += mainHTML;
 			});
 		}
@@ -58,8 +58,9 @@ function commentModal(event) {
 
 function addNewComment(event) {
 	var content = $("#addCommentContent").val();
+	var username = AV.User.current().getUsername();
 	if (content.length > 0) {
-		setCommentForStatus(event.target.id, content, function(success, err) {
+		setCommentForStatus(event.target.id, {"content":content,"username":username}, function(success, err) {
 			if (success) {
 				$('#commentModel').closeModal();
 			} else {
