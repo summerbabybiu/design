@@ -4,7 +4,8 @@ var Comment = AV.Object.extend('Comment');
 function setCommentForStatus(statusId,commentContent,callback) {
 	var commentObj = new Comment();
 	commentObj.set('status',statusId);
-	commentObj.set('content',commentContent);
+	commentObj.set('content',commentContent.content);
+	commentObj.set('commenter',commentContent.username);
 	commentObj.save().then(function(){
 		callback('success',null);
 	},function(err){
