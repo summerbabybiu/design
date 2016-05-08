@@ -295,3 +295,12 @@ function getNext() {
 		loadCourse();
 	}
 }
+
+function to_chat() {
+	var currentUser = AV.User.current();
+	if (currentUser) {
+		location.href = "sns.html";
+	} else {
+		Materialize.toast("请先登录！", 3000, 'rounded');
+	}
+}

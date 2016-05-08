@@ -16,6 +16,7 @@ $(document).ready(function() {
 function get_finished() {	
 	$('.all_course ul').children('li').remove();
 	$('.all_course ul').text('');
+	var kind = sessionStorage.getItem('kind');
 	var currentUser = AV.User.current();
 	if (currentUser) {
 		var query = new AV.Query('Record');
@@ -29,7 +30,7 @@ function get_finished() {
 					if (object.get('chapter') != "") {
 						if (object.get('finish') == true) {
 							console.log('已完成：' + object.get('courseKind') + ' - ' + object.get('chapter'));
-							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><p>最后一章了</p><div class='course_action'><a href='#' onclick = 'get_study()'>重新学习</a></div></div></li>";
+							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><p>最后一章了</p><div class='course_action'><a href='#' data-course = "+object.get('courseKind') +" onclick = 'get_study(event)'>重新学习</a></div></div></li>";
 							console.log(htmlString);
 							$('.all_course ul').append(htmlString);
 
@@ -68,7 +69,7 @@ function get_continue() {
 					if (object.get('chapter') != null ) {
 						if (object.get('finish') == false) {
 							console.log('未完成：' + object.get('courseKind') + ' - ' + object.get('chapter'));
-							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><p>已至第"+chapterNu+"章</p><div class='course_action'><a href='#' onclick = 'get_study()'>继续学习</a></div></div></li>";
+							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><p>已至第"+chapterNu+"章</p><div class='course_action'><a href='#' data-course = "+object.get('courseKind') +" onclick='get_study(event)'>继续学习</a></div></div></li>";
 							console.log(htmlString);
 							$('.all_course ul').append(htmlString);
 						}
@@ -87,9 +88,11 @@ function get_continue() {
 
 }
 
-function get_study() {
+function get_study(event) {
 	$('.show_yourCourse').addClass('hide');
 	$('show_detail').removeClass('hide');
+	console.log($(event.target).data('course'));
+	sessionStorage.kind = $(event.target).data('course');
 	loadCourse();	
 }
 
