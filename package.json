@@ -1,0 +1,25 @@
+{
+  "name": "graduation-design",
+  "version": "1.0.0",
+  "description": "graduation design",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenwzl/graduation-design.git"
+  },
+  "author": "summerbaby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stephenwzl/graduation-design/issues"
+  },
+  "homepage": "https://github.com/stephenwzl/graduation-design#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "multer": "^1.1.0"
+  }
+}
