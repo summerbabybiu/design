@@ -31,6 +31,16 @@ app.get('/tasks', function(req,res){
   });
 });
 
+app.post('/completetask',function(req,res){
+  taskUtils.completeTask(req.body.userid,req.body.taskid, function(err){
+    if(err) {
+      res.send(err);
+    }else {
+      res.send({message:'success'});
+    }
+  });
+});
+
 var server = app.listen(3000,function(){
   console.log("server started on port 3000");
 });
