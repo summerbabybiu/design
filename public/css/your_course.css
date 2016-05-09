@@ -82,4 +82,16 @@
 	text-align: center;
     margin: 0;
 }
-
+.all_course .collection {
+	height: auto;
+}
+.all_course .collection li{
+	width: 100%;
+}
+.all_course .collection li i {
+	position: absolute;
+	right: 20px;
+}
+.all_course .collection li i:hover {
+	cursor: pointer;
+}

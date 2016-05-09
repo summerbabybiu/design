@@ -12,7 +12,7 @@ $(document).ready(function() {
 		$(this).addClass('clickClass'); 
 	})
 });
-
+//已学完
 function get_finished() {	
 	$('.all_course ul').children('li').remove();
 	$('.all_course ul').text('');
@@ -50,7 +50,7 @@ function get_finished() {
 		alert('请先登录');
 	}
 }
-
+//正在学习
 function get_continue() {
 	$('.all_course ul').children('li').remove();
 	$('.all_course ul').text('');
@@ -87,12 +87,51 @@ function get_continue() {
 	}
 
 }
-
+//继续学习、重新学习
 function get_study(event) {
+	var currentUser = AV.User.current();
 	$('.show_yourCourse').addClass('hide');
 	$('show_detail').removeClass('hide');
 	console.log($(event.target).data('course'));
 	sessionStorage.kind = $(event.target).data('course');
+	var query = new AV.Query('Record');
+		query.equalTo('user', currentUser.get('username'));
+		query.equalTo('courseKind', sessionStorage.kind);
+		query.find().then(function(results) {
+			console.log(results.length);
+			if (results.length == 0) {
+				setRecord();
+			} else {
+				sessionStorage.recordID = results[0].id;
+			}
+		}, function(error) {
+			console.log('Error: ' + error.code + ' ' + error.message);
+		});
 	loadCourse();	
 }
-
+//学习任务
+function get_task() {
+	$('.all_course ul').children('li').remove();
+	$('.all_course ul').text('');
+	var currentUser = AV.User.current();
+	var HTMLString = " <ul class='collection'>";
+	$.ajax({
+             type: "GET",
+             url: "/tasks",
+			 data: {userid: currentUser.id},
+             dataType: "json",
+             success: function(data){
+                        console.log(data);
+                        data.forEach(function(t){
+                        		if (t.complete) {
+                        			HTMLString += "<li class='collection-item'>"+t.taskname+"<i class='mdi-action-done small green-text tooltipped' data-position='left' data-delay='50' data-tooltip='已完成'></i></li>";
+                        		} else {
+                        			HTMLString += "<li class='collection-item'>"+t.taskname+"<i class='mdi-action-schedule small red-text tooltipped' data-position='left' data-delay='50' data-tooltip='未完成'></i></li>";
+                        		}
+                        });
+                        HTMLString += ' </ul>';
+                        	$('.all_course ul').append(HTMLString);
+                        	$('.tooltipped').tooltip({delay: 50});
+                      }
+         }); 
+}
