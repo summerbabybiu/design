@@ -69,7 +69,7 @@ function get_continue() {
 					if (object.get('chapter') != null ) {
 						if (object.get('finish') == false) {
 							console.log('未完成：' + object.get('courseKind') + ' - ' + object.get('chapter'));
-							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><p>已至第"+chapterNu+"章</p><div class='course_action'><a href='#' data-course = "+object.get('courseKind') +" onclick='get_study(event)'>继续学习</a></div></div></li>";
+							var htmlString = "<li><div class='card'><h5 class='course_name'>" + object.get('courseKind') + "</h5><p>已至第"+object.get('chapter')+"章</p><div class='course_action'><a href='#' data-course = "+object.get('courseKind') +" onclick='get_study(event)'>继续学习</a></div></div></li>";
 							console.log(htmlString);
 							$('.all_course ul').append(htmlString);
 						}
