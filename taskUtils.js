@@ -12,7 +12,8 @@ var TaskUtils = {
       results.forEach(function(obj){
         array.push({
           taskname: obj.get("taskname"),
-          complete: obj.get("complete")
+          complete: obj.get("complete"),
+          taskid: obj.get("taskid")
         });
       });
       callback(null, array);
