@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var AV = require('avoscloud-sdk');
 var taskUtils = require('./taskUtils');
+var startSchedule = require('./scheduleJob')();
 
 AV.initialize('iuO5g66bCpCVIhnRtQnmn3YA-gzGzoHsz', 'xkRJahD7klcYeHQ3BDVbbwDS');
 app.use(express.static('public'));
