@@ -170,12 +170,11 @@ function loadCourse() {
 	var chapterNu = sessionStorage.getItem(kind);
 	//加载课程信息
 	var query = new AV.Query(kind);
+	query.equalTo('order',chapterNu);
 	query.find().then(function(results) {
-		//	console.log('Successfully retrieved ' + results.length + ' posts.');
-		sessionStorage.courseLength = results.length;
+		//console.log('Successfully retrieved ' + results.length + ' posts.');
 		// 处理返回的结果数据
-
-		var object = results[chapterNu - 1];
+		var object = results[0];
 		var order = object.get('order');
 		var title = object.get('title');
 		var content = object.get('content');
@@ -205,6 +204,13 @@ function loadCourse() {
 
 	}, function(error) {
 		console.log('Error: ' + error.code + ' ' + error.message);
+	});
+
+	var query2 = new AV.Query(kind);
+	query2.find().then(function(results) {
+		//	console.log('Successfully retrieved ' + results.length + ' posts.');
+		//得到总章节数
+		sessionStorage.courseLength = results.length;
 	});
 }
 

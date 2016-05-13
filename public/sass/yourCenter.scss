@@ -1,0 +1,113 @@
+.show_yourCourse {
+  padding-top: 30px;
+  height: 65vh;
+  /*min-width: 950px;*/
+
+  .row {
+      height: 60vh;
+      /*min-width: 950px;*/
+
+      #nav-couser {
+          position: relative;
+          width: 240px;
+          box-shadow: 2px 2px 2px #ddd ,-2px 2px 2px #ddd;
+          height: 100%;
+          background-color: #fff;
+
+          .logo {
+              .sayHello {
+                  display: block;
+                  text-align: center;
+                  padding: 20px 0;
+                  margin: 0;
+                  border-bottom: #ccc 1px solid;
+              }
+          }
+          .nav {
+              li {
+                  a {
+                      text-align: center;
+                      line-height: 44px;
+                      height: 44px;
+                      font-weight: bolder;
+                      display: block;
+                      color: #444;
+                      padding: 0 25px;
+
+                      &:hover {
+                          background: ghostwhite;
+                      }
+                  }
+                  .clickClass {
+                      background: ghostwhite;
+                  }
+              }
+          }
+      }
+      .present_course {
+          margin-left: 240px;
+          height: 100%;
+          margin-top: -60vh;
+          .all_course {
+              padding: 20px;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+
+              ul {
+                  height: 100%;
+                  margin: 0;
+
+                  li {
+                      float: left;
+                      display: inline-block;
+                      padding: 0 10px;
+
+                      .card {
+                          height: 128px;
+                          width: 200px;
+
+                          .course_action {
+                              border-top: 1px solid rgba(160, 160, 160, 0.2);
+
+                              a {
+                                  display: block;
+                                  text-align: center;
+                                  padding: 10px 0;
+                              }
+
+                          }
+
+                          .course_name {
+                            text-align: center;
+                            padding: 20px 10px;
+                            margin: 0;
+                          }
+                          p {
+                              text-align: center;
+                              margin: 0;
+                          }
+                      }
+                  }
+                  .collection {
+                      height: auto;
+
+                      li{
+                          width: 100%;
+                          padding: 10px;
+
+                          i {
+                              position: absolute;
+                              right: 20px;
+
+                              &:hover {
+                                  cursor: pointer;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}

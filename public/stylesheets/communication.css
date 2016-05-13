@@ -1,0 +1,58 @@
+/* line 3, ../sass/communication.scss */
+.container .operate #status_to_public:focus {
+  border-bottom: 1px solid #ef9a9a;
+  box-shadow: 0 1px 0 0 #ef9a9a;
+}
+/* line 8, ../sass/communication.scss */
+.container #status {
+  margin-top: 20px;
+  min-height: 60vh;
+}
+/* line 12, ../sass/communication.scss */
+.container #status .divider {
+  margin: 10px 0;
+}
+/* line 15, ../sass/communication.scss */
+.container #status .cover {
+  position: relative;
+}
+/* line 19, ../sass/communication.scss */
+.container #status .cover .username .time {
+  position: absolute;
+  right: 20px;
+  font-size: 16px;
+}
+/* line 25, ../sass/communication.scss */
+.container #status .cover .content {
+  text-indent: 2em;
+}
+/* line 28, ../sass/communication.scss */
+.container #status .cover .seeComment {
+  background-color: whitesmoke;
+  color: #424242;
+  padding: 0 10px;
+}
+/* line 33, ../sass/communication.scss */
+.container #status .cover .seeComment:hover, .container #status .cover .seeComment:focus {
+  background-color: #ef9a9a;
+  color: whitesmoke;
+}
+
+/* line 43, ../sass/communication.scss */
+#commentModel #commentModalContent p:nth-child(even) {
+  text-indent: 2em;
+}
+/* line 46, ../sass/communication.scss */
+#commentModel #commentModalContent p:nth-child(odd) {
+  font-weight: 500;
+}
+/* line 49, ../sass/communication.scss */
+#commentModel #commentModalContent:focus {
+  border-bottom: 1px solid #ef9a9a;
+  box-shadow: 0 1px 0 0 #ef9a9a;
+}
+/* line 53, ../sass/communication.scss */
+#commentModel #commentModalContent p span {
+  position: absolute;
+  right: 20px;
+}

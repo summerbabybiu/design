@@ -1,0 +1,113 @@
+/* line 1, ../sass/yourCenter.scss */
+.show_yourCourse {
+  padding-top: 30px;
+  height: 65vh;
+  /*min-width: 950px;*/
+}
+/* line 6, ../sass/yourCenter.scss */
+.show_yourCourse .row {
+  height: 60vh;
+  /*min-width: 950px;*/
+}
+/* line 10, ../sass/yourCenter.scss */
+.show_yourCourse .row #nav-couser {
+  position: relative;
+  width: 240px;
+  box-shadow: 2px 2px 2px #ddd ,-2px 2px 2px #ddd;
+  height: 100%;
+  background-color: #fff;
+}
+/* line 18, ../sass/yourCenter.scss */
+.show_yourCourse .row #nav-couser .logo .sayHello {
+  display: block;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+  border-bottom: #ccc 1px solid;
+}
+/* line 28, ../sass/yourCenter.scss */
+.show_yourCourse .row #nav-couser .nav li a {
+  text-align: center;
+  line-height: 44px;
+  height: 44px;
+  font-weight: bolder;
+  display: block;
+  color: #444;
+  padding: 0 25px;
+}
+/* line 37, ../sass/yourCenter.scss */
+.show_yourCourse .row #nav-couser .nav li a:hover {
+  background: ghostwhite;
+}
+/* line 41, ../sass/yourCenter.scss */
+.show_yourCourse .row #nav-couser .nav li .clickClass {
+  background: ghostwhite;
+}
+/* line 47, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course {
+  margin-left: 240px;
+  height: 100%;
+  margin-top: -60vh;
+}
+/* line 51, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+/* line 57, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul {
+  height: 100%;
+  margin: 0;
+}
+/* line 61, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul li {
+  float: left;
+  display: inline-block;
+  padding: 0 10px;
+}
+/* line 66, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul li .card {
+  height: 128px;
+  width: 200px;
+}
+/* line 70, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul li .card .course_action {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+}
+/* line 73, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul li .card .course_action a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+}
+/* line 81, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul li .card .course_name {
+  text-align: center;
+  padding: 20px 10px;
+  margin: 0;
+}
+/* line 86, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul li .card p {
+  text-align: center;
+  margin: 0;
+}
+/* line 92, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul .collection {
+  height: auto;
+}
+/* line 95, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul .collection li {
+  width: 100%;
+  padding: 10px;
+}
+/* line 99, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul .collection li i {
+  position: absolute;
+  right: 20px;
+}
+/* line 103, ../sass/yourCenter.scss */
+.show_yourCourse .row .present_course .all_course ul .collection li i:hover {
+  cursor: pointer;
+}

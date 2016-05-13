@@ -1,0 +1,58 @@
+.container {
+    .operate {
+        #status_to_public:focus {
+            border-bottom: 1px solid #ef9a9a;
+            box-shadow: 0 1px 0 0 #ef9a9a;
+        }
+    }
+    #status {
+        margin-top: 20px;
+        min-height: 60vh;
+
+        .divider {
+            margin: 10px 0;
+        }
+        .cover {
+            position: relative;
+
+            .username {
+                .time {
+                    position: absolute;
+                    right: 20px;
+                    font-size: 16px;
+                }
+            }
+            .content {
+                text-indent: 2em;
+            }
+            .seeComment {
+                background-color: whitesmoke;
+                color: #424242 ;
+                padding: 0 10px;
+
+                &:hover , &:focus{
+                    background-color: #ef9a9a;
+                    color: whitesmoke ;
+                }
+            }
+        }
+    }
+}
+#commentModel {
+    #commentModalContent {
+        p:nth-child(even) {
+            text-indent: 2em;
+        }
+        p:nth-child(odd) {
+            font-weight: 500;
+        }
+        &:focus {
+            border-bottom: 1px solid #ef9a9a ;
+            box-shadow: 0 1px 0 0 #ef9a9a ;
+        }
+        p  span {
+            position: absolute;
+            right: 20px;
+        }
+    }
+}

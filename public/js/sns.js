@@ -41,7 +41,7 @@ function commentModal(event) {
 		if (results) {
 			results.reverse();
 			results.forEach(function(obj) {
-				var mainHTML = "<p>"+obj.get("commenter")+"</p><p>" + obj.get("content") + "</p>"
+				var mainHTML = "<div><p>"+obj.get("commenter")+"<span>"+FormatDate(obj.createdAt)+"</span></p><p>" + obj.get("content") + "</p></div><div class='divider'></div>"
 				contentHTML += mainHTML;
 			});
 		}
@@ -73,25 +73,6 @@ function addNewComment(event) {
 	}
 }
 
-function friends() {
-	var query = AV.Status.inboxQuery(AV.User.current());
-	query.find().then(function(statuses) {
-		//查询成功，返回状态列表，每个对象都是 AV.Status
-		insertStatusObj(statuses);
-	}, function(err) {
-		//查询失败
-		console.dir(err);
-	});
-}
-/*
-function follow(e) {
-	AV.User.current().follow(e.target.id).then(function() {
-		alert('关注成功');
-	}, function(err) {
-		console.dir(err);
-	});
-}
-*/
 function insertStatus(array) {
 	var currentUser = AV.User.current();
 	var statusHTML = "";
@@ -107,30 +88,14 @@ function insertStatus(array) {
 			imgHTML = "<img src='" + obj._serverData.image + "'>";
 		}
 		var commentHTML = "<button onclick='commentModal(event)' id='" + obj.id + "' class= 'btn waves-effect waves-light seeComment'>查看评论</button>";
-		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj._serverData.message + "</p>" + imgHTML +"<br/>"+ commentHTML + "</div>";
-
+		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "<span class='time'>"+ FormatDate(obj.createdAt) +" </span></h5><p class='content'>" + obj._serverData.message + "</p>" + imgHTML +"<br/>"+ commentHTML + "</div>";
+console.log( obj._serverData);
 	});
 	$("#status").empty();
 	$("#status").append(statusHTML);
 }
 
-function insertStatusObj(array) {
-	var currentUser = AV.User.current();
-	var statusHTML = "";
-	array.forEach(function(obj) {
-		var followHTML = "";
-		var userName = "我";
-		console.log(obj.get('source').get('username'));
-		if (AV.User.current().id != obj.get('source').id) {
-			userName = "匿名用户";
-		}
-		var imgHTML = "";
-		if (obj.data.image) {
-			imgHTML = "<img src='" + obj._serverData.image + "'>";
-		}
-		statusHTML += "<div class='divider'></div><div class='cover'><h5 class='username'>" + userName + "</h5><p class='content'>" + obj.data.message + "</p>" + imgHTML + commentHTML + "</div>";
-	});
-
-	$("#status").empty();
-	$("#status").append(statusHTML);
+function FormatDate (strTime) {
+	var date = new Date(strTime);
+	return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+' '+date.getHours()+":"+date.getMinutes() ;
 }
