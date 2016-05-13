@@ -2,7 +2,7 @@
  * Created by xx on 16/3/20.
  */
 //leancloud initlize
-var array_course = new Array();
+var array_task = new Array();
 $(document).ready(function() {
 	AV.initialize('iuO5g66bCpCVIhnRtQnmn3YA-gzGzoHsz', 'xkRJahD7klcYeHQ3BDVbbwDS');
 	//加载导航栏
@@ -15,6 +15,7 @@ $(document).ready(function() {
 		$('#nav_user').removeClass('hide');
 		readRecord();
 	}
+	readTask();
 	
 });
 
@@ -37,6 +38,24 @@ function readRecord() {
 	});
 }
 
+function readTask(){
+	var query = new AV.Query('Task');
+	query.find().then(function(results) {
+		console.log('Successfully retrieved ' + results.length + ' posts.');
+		// 处理返回的结果数据
+		for (var i = 0; i < results.length; i++) {
+			var object = results[i];
+			var name = object.get('name') ;
+			var taskid = object.id ;
+
+			var  demo = [];
+			demo.push(name,taskid);
+			array_task.push(demo);
+		}
+	}, function(error) {
+		console.log('Error: ' + error.code + ' ' + error.message);
+	});
+}
 
 function register() {
 	var userName = $("#register_name").val();
@@ -50,6 +69,7 @@ function register() {
 		user.set('email', userEmail);
 		user.signUp().then(function(user) {
 			Materialize.toast("注册成功", 3000, 'rounded');
+			finishSign();
 			window.location.reload();
 		}, function(error) {
 
@@ -60,6 +80,21 @@ function register() {
 	}
 
 }
+
+function finishSign() {
+	var currentUser = AV.User.current();
+	var UserTask = AV.Object.extend('UserTask');
+	for(var i = 0; i < array_task.length; i++) {
+		console.log("excuted");
+		var userTask = new UserTask();
+		userTask.set('taskid',array_task[i][1]);
+		userTask.set('taskname',array_task[i][0]);
+		userTask.set('user',currentUser.id);
+		userTask.set('complete',false);
+		userTask.save();
+	}
+}
+
 
 function enter() {
 	var typeEmail = $('#login_email').val();
