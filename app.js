@@ -23,12 +23,14 @@ app.post('/sendmail', function(req,res){
 
 app.get('/tasks', function(req,res){
   var userid = req.body.userid;
-  taskUtils.allTaskForUser(userid,function(err, result){
-    if(err) {
-      res.send(err);
-    }else {
-      res.send(result);
-    }
+  taskUtils.checkTaskStatus(userid,function(error){
+    taskUtils.allTaskForUser(userid,function(err, result){
+      if(err) {
+        res.send(err);
+      }else {
+        res.send(result);
+      }
+    });
   });
 });
 
