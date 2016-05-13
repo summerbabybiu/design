@@ -44,6 +44,19 @@ app.post('/completetask',function(req,res){
   });
 });
 
+app.post('/register', function(req, res){
+  var user = new AV.User();
+  user.set('username',req.body.username);
+  user.set('password',req.body.password);
+  user.set('email',req.body.email);
+  user.signUp().then(function(user){
+    taskUtils.addTaskForUser(user.id);
+    res.send({success:true});
+  },function(err){
+    res.send(err);
+  });
+});
+
 var server = app.listen(3000,function(){
   console.log("server started on port 3000");
 });
