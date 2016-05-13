@@ -117,9 +117,7 @@ function get_task() {
 	var HTMLString = " <ul class='collection'>";
 	$.ajax({
              type: "GET",
-             url: "/tasks",
-			 data: {userid: currentUser.id},
-             dataType: "json",
+             url: "/tasks?userid="+currentUser.id,
              success: function(data){
                         console.log(data);
                         data.forEach(function(t){

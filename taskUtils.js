@@ -25,7 +25,7 @@ var TaskUtils = {
   },
   allTaskForUser: function (userid, callback) {
     var query = new AV.Query('UserTask');
-    query.equalTo('user', userid+'');
+    query.equalTo('user', userid);
     query.find().then(function (results) {
       var array = [];
       results.forEach(function (obj) {
@@ -44,7 +44,6 @@ var TaskUtils = {
     var verfyFunc = this.verifyTaskStatusForUser;
     var query = new AV.Query('_User');
     query.get(userid).then(function (user) {
-      console.log(user);
       var name = user.get("username");
       var query = new AV.Query('Record');
       query.equalTo('user', name);
@@ -52,6 +51,7 @@ var TaskUtils = {
         result.forEach(function (obj) {
           verfyFunc(obj, user);
         });
+        callback(null);
       }, function (err) {
         callback(err);
       });
