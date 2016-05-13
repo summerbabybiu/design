@@ -25,7 +25,7 @@ var TaskUtils = {
   },
   allTaskForUser: function (userid, callback) {
     var query = new AV.Query('UserTask');
-    query.equalTo('user', userid);
+    query.equalTo('user', userid+'');
     query.find().then(function (results) {
       var array = [];
       results.forEach(function (obj) {

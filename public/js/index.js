@@ -63,17 +63,22 @@ function register() {
 	var userPassword = $("#register_password").val();
 	console.log('userName: ' + userName + 'userEmail: ' + userEmail + 'userPassword: ' + userPassword);
 	if (userName && userEmail && userPassword) {
-		var user = new AV.User();
-		user.set('username', userName);
-		user.set('password', userPassword);
-		user.set('email', userEmail);
-		user.signUp().then(function(user) {
-			Materialize.toast("注册成功", 3000, 'rounded');
-			finishSign();
-			window.location.reload();
-		}, function(error) {
-
-			alert(error.message);
+		$.ajax({
+			url:'/register',
+			method: 'post',
+			data: {username:userName, password: userPassword, email: userEmail},
+			success: function(data){
+				if (data.success) {
+					AV.User.logIn(userEmail, userPassword).then(function(){
+						window.location.reload();
+					});
+				}else {
+					alert(data.message);
+				}
+			},
+			error: function(err){
+				alert(err.message);
+			}
 		});
 	} else {
 		alert("任意一项不能为空!");
