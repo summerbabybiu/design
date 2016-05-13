@@ -22,7 +22,8 @@ app.post('/sendmail', function(req,res){
 });
 
 app.get('/tasks', function(req,res){
-  var userid = req.body.userid;
+  var userid = req.query.userid;
+  console.log(userid);
   taskUtils.checkTaskStatus(userid,function(error){
     taskUtils.allTaskForUser(userid,function(err, result){
       if(err) {
