@@ -25,7 +25,7 @@
 					</ul>
 					<div class="right hide-on-med-and-down hide" id="nav_user">
 						<ul id="user_dropdown" class="dropdown-content ">
-							<li><a href="yoursCourse.html">我的课程</a></li>
+							<li><a href="yoursCourse.html">个人中心</a></li>
 							<li><a href="#change_password" class="waves-effect waves-light modal-trigger">修改密码</a></li>
 
 							<li><a href="#!" onclick="log_out()">退出</a></li>
@@ -49,11 +49,11 @@
 
 				<button class="btn waves-effect waves-light red lighten-3 " onclick="publish()">发布</button>
 				<button class="btn waves-effect waves-light red lighten-3 " onclick="queryAllStatus()">公开状态</button>
-				<!--<button class="btn waves-effect waves-light red lighten-3 " onclick="friends()">朋友圈</button>-->
+				<button class="btn waves-effect waves-light red lighten-3 " onclick="friends()">朋友圈</button>
 			</div>
 
 			<div id="status">
-				<!--<div class="cover">
+					<!--<div class="cover">
 						<h5 class="username">userName<span class="time">2016-3-11 18:23:11</span></h5>
 						<p class="content"> obj._serverData.message </p>
 						<img src='http://ww2.sinaimg.cn/large/8696f529jw1f2n5bct1owj20820aqwfc.jpg'>
@@ -61,7 +61,9 @@
 						<div class="divider"></div>
 					</div>
 					<div class="cover">
-						<h5 class="username">userName<span class="time">2016-3-11 18:23:11</span></h5>
+						<h5 class="username">userName<span class="time">2016-3-11 18:23:11</span>
+							<button class="btn waves-effect waves-light follower" onclick='follow(event)' >+ 关注</button>
+						</h5>
 						<p class="content"> obj._serverData.message </p>
 						<img src='http://ww2.sinaimg.cn/large/8696f529jw1f2n5bct1owj20820aqwfc.jpg'>
 						<button class="btn waves-effect waves-light follower" onclick='follow(event)' >+ 关注</button>
@@ -108,7 +110,7 @@
 						<div class="row">
 							<div class="input-field col s12">
 								<input id="register_name" type="text" class="validate">
-								<label for="name">用户名</label>
+								<label for="register_name">用户名</label>
 							</div>
 						</div>
 						<div class="row">

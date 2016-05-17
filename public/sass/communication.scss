@@ -16,10 +16,25 @@
             position: relative;
 
             .username {
+                line-height: 36px;
+
                 .time {
                     position: absolute;
-                    right: 20px;
+                    right: 150px;
                     font-size: 16px;
+                }
+                .follower {
+                    position: absolute;
+                    right: 5px;
+                    font-size: 14px;
+                    background-color: whitesmoke;
+                    color: #424242 ;
+                    padding: 0 10px;
+
+                    &:hover {
+                        background-color: #ef9a9a;
+                        color: whitesmoke ;
+                    }
                 }
             }
             .content {
