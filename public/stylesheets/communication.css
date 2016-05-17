@@ -74,3 +74,9 @@
   position: absolute;
   right: 20px;
 }
+
+/* line 78, ../sass/communication.scss */
+#myCare #myCare-content li a, #myCare #careMe-content li a, #careMe #myCare-content li a, #careMe #careMe-content li a {
+  position: absolute;
+  right: 20px;
+}

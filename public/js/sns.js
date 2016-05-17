@@ -242,3 +242,37 @@ function findCare( callback) {
         callback(tempArray);
     });
 }
+
+
+function getMyCare() {
+    var myHtml = "";
+    var query = AV.User.current().followeeQuery();
+    query.include('followee');
+    query.find().then(function(followees) {
+        console.log(followees);
+        followees.forEach(function(obj) {
+            myHtml += "<li class='collection-item'>"+ obj.attributes.username+"<a class='mdi-action-favorite red-text tooltipped' data-position='left' data-delay='50' data-tooltip='已关注'></a></li>";
+        });
+        $('#myCare-content').html(myHtml);
+        $('.tooltipped').tooltip({delay: 50});
+
+    });
+
+}
+
+function getCareMe() {
+
+    var myHtml = "";
+    var query = AV.User.current().followerQuery();
+    query.include('follower');
+    query.find().then(function(followers){
+        //粉丝列表 followers
+        console.log(followers);
+        followers.forEach(function(obj) {
+            myHtml += "<li class='collection-item'>"+ obj.attributes.username+"<a class='mdi-action-favorite tooltipped' data-position='left' data-delay='50' data-tooltip='关注者'></a></li>";
+        });
+        $('#careMe-content').html(myHtml);
+        $('.tooltipped').tooltip({delay: 50});
+
+    });
+}

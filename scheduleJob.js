@@ -3,6 +3,7 @@
  */
 var taskUtil = require('./taskUtils');
 var mailUtil = require('./mailUtils');
+var AV = require('avoscloud-sdk');
 
 
 var pushMailForUser = function(user){

@@ -33,6 +33,23 @@ body {
                 }
                 ul li a {
                     font-size: 14px;
+                    width: 100%;
+                }
+            }
+            .friend-cover {
+                width: 100px;
+                height: 64px;
+                position: absolute;
+                right: 150px;
+
+                #cares {
+                    display: inline-block;
+                    padding: 0 35px;
+
+                    ul li {
+                        font-size: 14px;
+                        width: 100%;
+                    }
                 }
             }
         }

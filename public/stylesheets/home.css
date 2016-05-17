@@ -39,27 +39,45 @@ body header nav .nav-wrapper #nav_user i {
 /* line 34, ../sass/home.scss */
 body header nav .nav-wrapper #nav_user ul li a {
   font-size: 14px;
+  width: 100%;
 }
-/* line 41, ../sass/home.scss */
+/* line 39, ../sass/home.scss */
+body header nav .nav-wrapper .friend-cover {
+  width: 100px;
+  height: 64px;
+  position: absolute;
+  right: 150px;
+}
+/* line 45, ../sass/home.scss */
+body header nav .nav-wrapper .friend-cover #cares {
+  display: inline-block;
+  padding: 0 35px;
+}
+/* line 49, ../sass/home.scss */
+body header nav .nav-wrapper .friend-cover #cares ul li {
+  font-size: 14px;
+  width: 100%;
+}
+/* line 58, ../sass/home.scss */
 body #register, body #logIn {
   width: 40%;
 }
-/* line 44, ../sass/home.scss */
+/* line 61, ../sass/home.scss */
 body #logIn .modal-footer .forget_p {
   padding-left: 35px;
   display: inline-block;
   padding-top: 12px;
 }
-/* line 49, ../sass/home.scss */
+/* line 66, ../sass/home.scss */
 body .show_detail {
   padding-top: 30px;
   height: 65vh;
 }
-/* line 53, ../sass/home.scss */
+/* line 70, ../sass/home.scss */
 body .show_detail .card {
   height: 58vh;
 }
-/* line 56, ../sass/home.scss */
+/* line 73, ../sass/home.scss */
 body .show_detail .card .card-content {
   position: absolute;
   left: 0;
@@ -67,22 +85,22 @@ body .show_detail .card .card-content {
   bottom: 62px;
   width: 100%;
 }
-/* line 63, ../sass/home.scss */
+/* line 80, ../sass/home.scss */
 body .show_detail .card .card-content .description {
   padding-bottom: 10px;
 }
-/* line 66, ../sass/home.scss */
+/* line 83, ../sass/home.scss */
 body .show_detail .card .card-content .course_content {
   padding-bottom: 10px;
 }
-/* line 69, ../sass/home.scss */
+/* line 86, ../sass/home.scss */
 body .show_detail .card .card-content .show_code {
   width: inherit;
   background-color: #f5f2f0;
   max-height: 200px;
   overflow: auto;
 }
-/* line 77, ../sass/home.scss */
+/* line 94, ../sass/home.scss */
 body .show_detail .card .card-action {
   position: absolute;
   bottom: 0;

@@ -71,3 +71,14 @@
         }
     }
 }
+
+#myCare, #careMe {
+    #myCare-content, #careMe-content {
+        li {
+            a {
+                position: absolute;
+                right: 20px;
+            }
+        }
+    }
+}
